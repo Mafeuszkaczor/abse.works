@@ -18,5 +18,96 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 20px;
+}
+
+.cardBody {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.gothic-regular {
+    font-family: "Special Gothic Expanded One", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.gothic-light {
+    font-family: "Special Gothic Expanded One", sans-serif !important;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.montserrat {
+    font-family: "Montserrat", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.montserrat-bold {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.hero-img-abse {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: auto;
+    max-width: 100vw;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-abse {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text-abse {
+    position: relative;
+    z-index: 2;
+    margin-right: 10vw;
+    padding: 80px 0 80px 0;
+    max-width: 1100px;
+}
+
+.bgdark {
+    background-color: #2C2B28 !important;
+}
+
+.bgyellow {
+    background-color: #FECB05 !important;
+}
+
+.fyellow {
+    color: #FECB05
+}
+
+.roundBorder {
+    border-top-left-radius: 50px !important;
+    border-top-right-radius: 50px !important;
+}
+
+.roundBorderBottom {
+    border-bottom-left-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+}
+
+.roundBorderTopSmall {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+
+.roundBorderBottomSmall {
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
 }

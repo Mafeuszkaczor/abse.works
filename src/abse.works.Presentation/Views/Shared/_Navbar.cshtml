@@ -1,0 +1,50 @@
+﻿<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+
+<style>
+    .yellow {
+        color: #FECB05 !important;
+    }
+
+    hr.yellow {
+        border-color: #FECB05;
+    }
+
+    nav {
+        background-color: #2C2B28;
+        border-bottom: solid;
+        border-color: #FECB05
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+</style>
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow sticky-top">
+    <div class="container-fluid">
+		<img src="~/content/logoyellow.png" class="me-3" style="width: 60px;" />
+        <a class="navbar-brand gothic-regular" style="font-size: min(max(2rem, 2vw), 50px); color: white" asp-area="" asp-controller="Home" asp-action="Index">abse.works</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1 p-3 gap-2 montserrat">
+                <li class="nav-item">
+                    <a class="yellow nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs" style="font-size: min(max(1.3rem, 1.3vw), 30px);">O nas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link yellow" style="font-size: min(max(1.3rem, 1.3vw), 30px);"
+                       asp-area="" asp-controller="Home" asp-action="JobOffers">Oferty pracy</a>
+                </li>
+                @* <li class="nav-item">
+                    <a class="nav-link yellow" style="font-size: min(max(1.3rem, 1.3vw), 30px);"
+                       asp-area="" asp-controller="Dashboard" asp-action="LoadDashboardView">Portal</a>
+                </li> *@
+            </ul>
+        </div>
+    </div>
+</nav>

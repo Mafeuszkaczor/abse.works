@@ -6,4 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="bootstrap" Version="5.3.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\abse.works.Application\abse.works.Application.csproj" />
+    <ProjectReference Include="..\abse.works.Domain\abse.works.Domain.csproj" />
+    <ProjectReference Include="..\abse.works.Infrastructure\abse.works.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

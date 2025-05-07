@@ -1,0 +1,289 @@
+﻿@using abse.works.Application.ViewModels.HomePage;
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Strona Główna";
+}
+
+<style>
+    .accordion-button,
+    .accordion-button:not(.collapsed),
+    .accordion-button:focus {
+        background-color: #2C2B28 !important;
+        color: #fff !important;
+        box-shadow: none !important;
+    }
+
+        .accordion-button::after {
+            display: none;
+        }
+
+    .text-shadow {
+        text-shadow: 2px 2px 10px #111111;
+    }
+
+    .border-sides {
+        border-left: 4px solid #FECB05;
+        border-right: 4px solid #FECB05;
+    }
+
+    .custom-btn {
+        background: #232323;
+        color: #fff;        
+        border: none;         
+        border-radius: 999px; 
+        padding: 0.5em 2.5em; 
+        font-size: 1.3rem;    
+        font-weight: bold;    
+        font-style: italic;   
+        font-family: inherit; 
+        box-shadow: none;     
+        cursor: pointer;      
+        display: inline-block;
+        transition: background 0.2s;
+    }
+
+        .custom-btn:hover, .custom-btn:focus {
+            background: #111;
+            outline: none;
+        }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+<body class="montserrat bgdark">
+    <div class="bgyellow">
+        <div class="bgdark position-relative hero-abse roundBorderBottom" style="min-height: 30vw;">
+            <img src="~/content/maps/europe.png" alt="Mapa Europy" class="hero-img-abse" />
+            <div class="container">
+                <div class="ms-5 hero-text-abse">
+                    <div class="display-5 fw-bold mb-5 fyellow">ABSE - All Byggservice Sverige AB</div>
+                    <h6 class="text-white">
+                        ABSE (All Byggservice Sverige AB) to wiodąca szwedzka firma budowlana o zasięgu międzynarodowym, oferująca kompleksowe rozwiązania w branży konstrukcyjnej i wykończeniowej.
+                        <br><br>
+                        Od fundamentów po dach, od projektowania po realizację
+                        – dostarczamy usługi <b class="fyellow fw-bold">najwyższej jakości </b>dla
+                        <b class="fyellow fw-bold">najbardziej wymagających klientów</b>.
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bgyellow">
+        <div class="ps-sm-0 ps-md-5">
+            <div class="row mx-3 pb-5">
+                <div class="col-sm-12 col-lg-7">
+                    <div class="ms-sm-0 me-sm-4 me-lg-0 ms-lg-4">
+                        <p class="display-5 gothic-regular mt-5" id="offer">Nasze specjalizacje</p>
+                        <div class="mt-5 mb-5">
+                            @{
+                                int i = 0;
+                                foreach (var item in Model.Specializations)
+                                {
+                                    <div class="accordion accordion-flush mb-1" id="accordionExample">
+                                        <div class="accordion-item bgdark">
+                                            <div class="accordion-header bgdark">
+                                                <button class="accordion-button collapsed p-3 bgdark text-white" type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#item-@i"
+                                                aria-expanded="false"
+                                                aria-controls="item-@i">
+                                                    <h5 class="m-0">@item.Key</h5>
+                                                </button>
+                                            </div>
+                                            <div id="item-@i" class="accordion-collapse collapse bg-light">
+                                                <div class="accordion-body montserrat-bold text-dark">@item.Value</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    i++;
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-5 d-flex align-items-center justify-content-center">
+                    <img src="~/content/logoblack.png" style="max-width: 100%; width: min(max(200px, 35vw), 400px);" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bgyellow">
+        <div class="bgdark roundBorder fst-italic">
+            <h4 class="text-white fw-light p-5 container">Działamy w całej Szwecji – od Malmö po Kirunę – oraz rozszerzamy działalność na Polskę, Norwegię, Niemcy, Francję, Danię, Holandię, Belgię i Irak, łącząc skandynawskie standardy jakości z lokalną wiedzą i kompetencjami.</h4>
+        </div>
+    </div>
+
+    <div class="bg-light roundBorder pb-5">
+        <div class="container text-center">
+            <p class="p-5 display-5 gothic-regular">Dlaczego warto wybrać ABSE?</p>
+            <div class="accordion" id="abseAccordion">
+                @{
+                    int idx = 0;
+                }
+                @foreach (var a in Model.Advantages)
+                {
+                    <div class="accordion-item border mb-2 rounded shadow">
+                        <h2 class="accordion-header" id="heading-@idx">
+                            <button class="accordion-button collapsed bgdark" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-@idx"
+                                    aria-expanded="false"
+                                    aria-controls="collapse-@idx">
+                                <div class="d-flex align-items-center w-100 p-2">
+                                    <img src="~/content/logoyellow.png" style="width: 50px;" />
+                                    <h4 class="flex-grow-1 text-light mb-0 ms-2">@a.Key</h4>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapse-@idx" class="accordion-collapse bgyellow collapse" aria-labelledby="heading-@idx">
+                            <div class="accordion-body">
+                                <h5 class="m-2 text-dark">@a.Value</h5>
+                            </div>
+                        </div>
+                    </div>
+                    idx++;
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-light">
+        <div class="bgdark roundBorder p-3">
+            <h4 class="text-white fw-light text-center fst-italic p-5 container">
+                Zrealizujemy Twój projekt od fundamentów po dach <br /> – niezależnie od skali i lokalizacji.
+            </h4>
+        </div>
+    </div>
+
+    <div class="bgdark">
+        <div class="bgyellow roundBorder p-3">
+            <div class="container text-center p-1">
+                <a class="btn custom-btn bgdark text-light fw-bold mt-4 p-3" href="#contact">
+                    Skontaktuj się z nami
+                </a>
+                <h3 class="text-center m-4 fw-bold fst-italic">omów możliwości współpracy</h3>
+            </div>
+        </div>
+    </div>
+     
+    <div class="bgyellow">
+        <div class="bgdark roundBorder">
+            <div class="row align-items-center justify-content-center mb-3">
+                <div class="col-auto">
+                    <img src="~/content/logoyellow.png" class="m-4" style="max-width: 100%; width: 200px;" />
+                </div>
+                <div class="col-auto">
+                    <h1 class="text-center gothic-regular text-light fst-italic">Dołącz do zespołu ABSE</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="roundBorder p-3 text-center" style="background-color: hsl(47, 4%, 40%)">
+            <h4 class="text-light fw-light fst-italic">W ABSE wierzymy, że pracownicy <br />są najcenniejszym kapitałem</h4>
+        </div>
+
+        <div class="roundBorderBottom" style="background-color: hsl(47, 4%, 40%)">
+            <div class="bgyellow roundBorder roundBorderBottom pb-5">
+                <div class="align-content-center text-center p-3 pt-5">
+                    <h1 class="mb-5 gothic-regular">Oferujemy</h1>
+                    @foreach (var a in Model.Offers)
+                    {
+                        <div class="border border-dark mb-3 mx-sm-0 mx-lg-4 bg-light" style="border-bottom-right-radius: 20px;">
+                            <div class="bgdark d-flex align-items-center p-2">
+                                <img src="~/content/logoyellow.png" style="max-width: 100%; width: 50px;" />
+                                <h4 class="flex-grow-1 text-light">@a.Key</h4>
+                            </div>
+                            <h6 class="m-3">
+                                @a.Value
+                            </h6>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bgyellow">
+        <div class="bgdark">
+            <h4 class="text-white fw-light text-center fst-italic p-5 container">
+                Bez względu na Twoją specjalizację – jako stolarz, zbrojarz, elektryk <br />
+                czy inżynier – w ABSE znajdziesz miejsce do rozwoju swoich <br />
+                umiejętności i realizacji ambitnych projektów.
+            </h4>
+        </div>
+    </div>
+
+    <div class="bgdark container mb-5">
+        <div class="bgyellow roundBorder roundBorderBottom text-center p-5">
+            <h4 class="fw-light text-center fw-bold mb-3 container">
+                Sprawdź aktualne oferty pracy
+            </h4>
+            <a class="btn custom-btn bgdark text-light fw-boldp-4" asp-controller="Home" asp-action="JobOffers">
+                Sprawdź
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-light roundBorder p-5">
+        <div class="container pb-5">
+            <div class="display-5 gothic-regular mb-4">Realizacje</div>
+            @{
+                int photoCount = Model.Photos.Count();
+            }
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="carouselExampleControls1" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @for (int a = 0; a < photoCount / 2; a++)
+                            {
+                                <div class="carousel-item @(a == 0 ? "active" : "")">
+                                    <img class="d-block w-100" src="@Model.Photos[a]" alt="Slide @(a + 1)">
+                                </div>
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div id="carouselExampleControls2" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @for (int a = photoCount / 2; a < photoCount; a++)
+                            {
+                                <div class="carousel-item @(a == photoCount / 2 ? "active" : "")">
+                                    <img class="d-block w-100" src="@Model.Photos[a]" alt="Slide @(a + 1)">
+                                </div>
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Contact");
+</body>
+

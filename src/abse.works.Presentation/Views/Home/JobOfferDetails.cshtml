@@ -1,0 +1,121 @@
+﻿@using Microsoft.AspNetCore.Mvc;
+@using abse.works.Application.ViewModels.JobOffer;
+@model JobOfferViewModel
+@{
+    ViewData["Title"] = "Oferta";
+    var model = Model;
+}
+
+<body class="bgdark">
+    <style>
+        i {
+            margin-right: 0.6rem;
+        }
+    </style>
+	<div>
+        <div class="container">
+            <div class="bgyellow p-4 roundBorderBottom text-center mb-5">
+                <h1 class="gothic-regular mb-3">Oferta</h1>
+                <p class="montserrat mb-1">Chcesz zaaplikować? Napisz e-mail lub zadzwoń do nas!</p>
+                <p class="montserrat-bold">+48 522 333 222 | rekrutacja@abse.works</p>
+            </div>
+		    
+            <div class="bgyellow p-3 roundBorder roundBorderBottom">
+                <div class="container">
+
+                    <div class="card mb-4 border-0 shadow mt-3 roundBorderTopSmall">
+                        <div class="card-header bgdark text-light roundBorderTopSmall">
+                            <h3 class="mb-0 text-light">@Model.Position</h3>
+                            <p class="mb-0">@Model.Localization - @Model.Country</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="lead">@Model.Description</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="bg-light p-3 rounded">
+                                        <p><strong>Data rozpoczęcia:</strong> @Model.StartDate.ToString("dd.MM.yyyy")</p>
+                                        <p><strong>Okres:</strong> @Model.Period miesięcy</p>
+                                        <p><strong>Stawka:</strong> @Model.Salary</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-header bgdark text-light rounded-top">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-hammer"></i>
+                                        <h5 class="mb-0">Wymagane umiejętności i kwalifikacje</h5>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-light rounded-bottom">
+                                    @if (Model.Skills != null && Model.Skills.Count > 0)
+                                    {
+                                        <div class="d-flex flex-wrap">
+                                            @foreach (var skill in Model.Skills)
+                                            {
+                                                <span class="badge bg-primary me-2 mb-2">@skill</span>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-header bgdark text-light rounded-top">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-tools"></i>
+                                        <h5 class="mb-0">Mile widziane</h5>
+                                    </div>
+                                </div>
+                                <div class="card-body bg-light rounded-bottom">
+                                    <p class="card-text">@Model.AdditionalSkills</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="card border-0 shadow">
+                            <div class="card-header bgdark text-light rounded-top">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-list-task"></i>
+                                    <h5 class="mb-0">Zakres obowiązków</h5>
+                                </div>
+                            </div>
+                            <div class="card-body bg-light rounded-bottom">
+                                <p class="card-text">@Model.Duties</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="card border-0 shadow">
+                            <div class="card-header bgdark text-light rounded-top">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-info-circle"></i>
+                                    <h5 class="mb-0">Dodatkowe informacje</h5>
+                                </div>
+                            </div>
+                            <div class="card-body bg-light rounded-bottom">
+                                <p class="card-text">@Model.AdditionalInfo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4 mb-3">
+                        <a href="javascript:history.back()" class="btn bgdark text-light">
+                            <i class="bi bi-arrow-90deg-left"></i>Powrót do listy
+                        </a>
+                    </div>
+                </div>
+		    </div>
+        </div>
+	</div>
+</body>
