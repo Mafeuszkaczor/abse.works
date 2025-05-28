@@ -14,5 +14,7 @@ namespace abse.works.Domain.Models
         public int ProfessionId { get; set; }
         [JsonIgnore]
         public Profession Profession { get; set; }
+
+        private Skill() { }
     } 
 }

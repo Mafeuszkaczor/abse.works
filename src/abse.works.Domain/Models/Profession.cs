@@ -11,6 +11,8 @@ namespace abse.works.Domain.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public List<Skill> Skills { get; set; } = new List<Skill>(); 
+        public List<Skill> Skills { get; set; } = new List<Skill>();
+
+        private Profession() { }
     }
 }

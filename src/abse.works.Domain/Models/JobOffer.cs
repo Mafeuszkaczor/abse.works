@@ -24,6 +24,8 @@ namespace abse.works.Domain.Models
 
         public Country Country { get; set; }
 
+        private JobOffer() { }
+
         public JobOffer(
             string position, 
             string description, 
